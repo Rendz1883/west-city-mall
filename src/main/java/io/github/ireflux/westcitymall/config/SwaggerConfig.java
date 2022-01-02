@@ -39,7 +39,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("京西商城接口文档")
-                .description("老任不服输")
+                .description("一个简单的商城实现")
                 .contact(new Contact("老任不服输", "https://www.laoren.com/", "laoren@gmail.com"))
                 .version("1.0")
                 .build();

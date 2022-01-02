@@ -3,6 +3,8 @@ package io.github.ireflux.westcitymall.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -22,18 +24,25 @@ public class StaffInfo implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @ApiModelProperty("员工姓名")
     private String staffName;
 
+    @ApiModelProperty("员工性别")
     private String staffSex;
 
+    @ApiModelProperty("创建时间")
     private LocalDateTime staffCreateDate;
 
+    @ApiModelProperty("更新时间")
     private LocalDateTime staffUpdateDate;
 
+    @ApiModelProperty("手机号")
     private Long staffPhone;
 
+    @ApiModelProperty("身份证类型")
     private Integer identityCardType;
 
+    @ApiModelProperty("身份证编号")
     private String identityCardNo;
 
     public Long getId() {

@@ -40,33 +40,33 @@ class ${table.controllerName}<#if superControllerClass??>:${superControllerClass
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
-    @Resource
+    @Autowired
     private ${table.serviceName} ${(table.serviceName?substring(1))?uncap_first};
 
     @PostMapping()
-    public int add(@RequestBody ${entity} ${entity?uncap_first}){
-        return ${(table.serviceName?substring(1))?uncap_first}.add(${entity?uncap_first});
+    public ApiResult add(@RequestBody ${entity} ${entity?uncap_first}){
+        return ApiResult.success(${(table.serviceName?substring(1))?uncap_first}.add(${entity?uncap_first}));
     }
 
     @DeleteMapping("{id}")
-    public int delete(@PathVariable("id") Long id){
-        return ${(table.serviceName?substring(1))?uncap_first}.delete(id);
+    public ApiResult delete(@PathVariable("id") Long id){
+        return ApiResult.success(${(table.serviceName?substring(1))?uncap_first}.delete(id));
     }
 
     @PutMapping()
-    public int update(@RequestBody ${entity} ${entity?uncap_first}){
-        return ${(table.serviceName?substring(1))?uncap_first}.updateData(${entity?uncap_first});
+    public ApiResult update(@RequestBody ${entity} ${entity?uncap_first}){
+        return ApiResult.success(${(table.serviceName?substring(1))?uncap_first}.updateData(${entity?uncap_first}));
     }
 
     @GetMapping()
-    public IPage<${entity}> findListByPage(@RequestParam Integer current,
+    public ApiResult findListByPage(@RequestParam Integer current,
                                    @RequestParam Integer pageSize){
-        return ${(table.serviceName?substring(1))?uncap_first}.findListByPage(current, pageSize);
+        return ApiResult.success(${(table.serviceName?substring(1))?uncap_first}.findListByPage(current, pageSize));
     }
 
     @GetMapping("{id}")
-    public ${entity} findById(@PathVariable Long id){
-        return ${(table.serviceName?substring(1))?uncap_first}.findById(id);
+    public ApiResult findById(@PathVariable Long id){
+        return ApiResult.success(${(table.serviceName?substring(1))?uncap_first}.findById(id));
     }
 
 }

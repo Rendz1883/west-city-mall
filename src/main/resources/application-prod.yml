@@ -3,6 +3,16 @@ server:
   servlet:
     context-path: /west-city
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  logging:
+    file: production_profile_app.log
+    path: ./log
+    level:
+      root: info
+      org.springframework.web: WARN
+      io.github.ireflux.westcitymall: WARN
   datasource:
     url: jdbc:mysql://localhost:3306/west_city_mall?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root

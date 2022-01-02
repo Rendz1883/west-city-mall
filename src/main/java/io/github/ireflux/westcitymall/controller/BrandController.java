@@ -1,6 +1,7 @@
 package io.github.ireflux.westcitymall.controller;
 
 
+import io.github.ireflux.westcitymall.base.ApiResult;
 import io.github.ireflux.westcitymall.service.IBrandInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-@Api("品牌信息接口")
+@Api("品牌信息接口1")
 @RestController
 @RequestMapping("/westcitymall/brand")
 public class BrandController {
@@ -25,9 +26,9 @@ public class BrandController {
     @Operation(summary = "品牌名查询")
     @GetMapping("/findNameByid/{id}")
     @ResponseBody
-    public String brandNameById(@PathVariable int id){
+    public ApiResult brandNameById(@PathVariable int id){
 
-        return brandInfoService.brandFindNameById(id);
+        return ApiResult.success(brandInfoService.brandFindNameById(id));
 
     }
 

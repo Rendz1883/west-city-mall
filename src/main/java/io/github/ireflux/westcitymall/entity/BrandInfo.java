@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -27,6 +29,7 @@ public class BrandInfo implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @NotBlank(message = "品牌名称不能为空")
     @ApiModelProperty("品牌名称")
     private String brandName;
 
@@ -39,10 +42,13 @@ public class BrandInfo implements Serializable {
     @ApiModelProperty("品牌状态")
     private String brandStatus;
 
+    @ApiModelProperty("创建时间")
     private LocalDateTime brandCreateDate;
 
+    @ApiModelProperty("更新时间")
     private LocalDateTime brandUpdateDate;
 
+    @ApiModelProperty("更新人ID")
     private Long brandUpdateStaffId;
 
     public Long getId() {

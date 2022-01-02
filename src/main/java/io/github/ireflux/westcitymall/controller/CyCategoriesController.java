@@ -1,5 +1,9 @@
 package io.github.ireflux.westcitymall.controller;
 
+import io.github.ireflux.westcitymall.base.ApiResult;
+import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.github.ireflux.westcitymall.service.ICyCategoriesService;
 import io.github.ireflux.westcitymall.entity.CyCategories;
@@ -8,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 
 /**
@@ -18,39 +24,45 @@ import org.springframework.stereotype.Controller;
  * @author zhaoxinyang
  * @since 2022-01-02
  */
-@Controller
+@Api(value = "分类信息接口", tags = "分类信息")
+@RestController
 @RequestMapping("/westcitymall/cy-categories")
 public class CyCategoriesController {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
-    @Resource
+    @Autowired
     private ICyCategoriesService cyCategoriesService;
 
+    @Operation(summary = "添加分类")
     @PostMapping()
-    public int add(@RequestBody CyCategories cyCategories){
-        return cyCategoriesService.add(cyCategories);
+    public ApiResult add(@Valid @RequestBody CyCategories cyCategories){
+        return ApiResult.success(cyCategoriesService.add(cyCategories));
     }
 
+    @Operation(summary = "删除分类")
     @DeleteMapping("{id}")
-    public int delete(@PathVariable("id") Long id){
-        return cyCategoriesService.delete(id);
+    public ApiResult delete(@PathVariable("id") Long id){
+        return ApiResult.success(cyCategoriesService.delete(id));
     }
 
+    @Operation(summary = "修改分类")
     @PutMapping()
-    public int update(@RequestBody CyCategories cyCategories){
-        return cyCategoriesService.updateData(cyCategories);
+    public ApiResult update(@Valid @RequestBody CyCategories cyCategories){
+        return ApiResult.success(cyCategoriesService.updateData(cyCategories));
     }
 
+    @Operation(summary = "分类分页查询")
     @GetMapping()
-    public IPage<CyCategories> findListByPage(@RequestParam Integer current,
+    public ApiResult findListByPage(@RequestParam Integer current,
                                    @RequestParam Integer pageSize){
-        return cyCategoriesService.findListByPage(current, pageSize);
+        return ApiResult.success(cyCategoriesService.findListByPage(current, pageSize));
     }
 
+    @Operation(summary = "查询单个分类")
     @GetMapping("{id}")
-    public CyCategories findById(@PathVariable Long id){
-        return cyCategoriesService.findById(id);
+    public ApiResult findById(@PathVariable Long id){
+        return ApiResult.success(cyCategoriesService.findById(id));
     }
 
 }

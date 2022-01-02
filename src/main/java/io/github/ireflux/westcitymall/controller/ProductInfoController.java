@@ -1,5 +1,9 @@
 package io.github.ireflux.westcitymall.controller;
 
+import io.github.ireflux.westcitymall.base.ApiResult;
+import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.github.ireflux.westcitymall.service.IProductInfoService;
 import io.github.ireflux.westcitymall.entity.ProductInfo;
@@ -8,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 
 /**
@@ -18,39 +24,45 @@ import org.springframework.stereotype.Controller;
  * @author zhaoxinyang
  * @since 2022-01-02
  */
-@Controller
+@Api(value = "产品信息接口", tags = "产品信息")
+@RestController
 @RequestMapping("/westcitymall/product-info")
 public class ProductInfoController {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
-    @Resource
+    @Autowired
     private IProductInfoService productInfoService;
 
+    @Operation(summary = "添加产品")
     @PostMapping()
-    public int add(@RequestBody ProductInfo productInfo){
-        return productInfoService.add(productInfo);
+    public ApiResult add(@Valid @RequestBody ProductInfo productInfo){
+        return ApiResult.success(productInfoService.add(productInfo));
     }
 
+    @Operation(summary = "删除产品")
     @DeleteMapping("{id}")
-    public int delete(@PathVariable("id") Long id){
-        return productInfoService.delete(id);
+    public ApiResult delete(@PathVariable("id") Long id){
+        return ApiResult.success(productInfoService.delete(id));
     }
 
+    @Operation(summary = "修改产品")
     @PutMapping()
-    public int update(@RequestBody ProductInfo productInfo){
-        return productInfoService.updateData(productInfo);
+    public ApiResult update(@Valid @RequestBody ProductInfo productInfo){
+        return ApiResult.success(productInfoService.updateData(productInfo));
     }
 
+    @Operation(summary = "产品分页查询")
     @GetMapping()
-    public IPage<ProductInfo> findListByPage(@RequestParam Integer current,
+    public ApiResult findListByPage(@RequestParam Integer current,
                                    @RequestParam Integer pageSize){
-        return productInfoService.findListByPage(current, pageSize);
+        return ApiResult.success(productInfoService.findListByPage(current, pageSize));
     }
 
+    @Operation(summary = "查询单个产品")
     @GetMapping("{id}")
-    public ProductInfo findById(@PathVariable Long id){
-        return productInfoService.findById(id);
+    public ApiResult findById(@PathVariable Long id){
+        return ApiResult.success(productInfoService.findById(id));
     }
 
 }
