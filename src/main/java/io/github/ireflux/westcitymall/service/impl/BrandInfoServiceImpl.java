@@ -47,4 +47,11 @@ public class BrandInfoServiceImpl extends ServiceImpl<BrandInfoMapper, BrandInfo
     public BrandInfo findById(Long id){
         return  baseMapper.selectById(id);
     }
+
+    @Override
+    public String brandFindNameById(int id) {
+        return baseMapper.selectNameById(id);
+    }
+
+
 }

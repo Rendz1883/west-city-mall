@@ -1,6 +1,6 @@
 package io.github.ireflux.westcitymall.service;
 
-import io.github.ireflux.westcitymall.entity.BrandInfo;
+import io.github.ireflux.westcitymall.entity.CyCategories;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
@@ -10,26 +10,26 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
  * </p>
  *
  * @author zhaoxinyang
- * @since 2022-01-01
+ * @since 2022-01-02
  */
-public interface IBrandInfoService extends IService<BrandInfo> {
+public interface ICyCategoriesService extends IService<CyCategories> {
 
     /**
      * 查询分页数据
      *
      * @param page      页码
      * @param pageCount 每页条数
-     * @return IPage<BrandInfo>
+     * @return IPage<CyCategories>
      */
-    IPage<BrandInfo> findListByPage(Integer page, Integer pageCount);
+    IPage<CyCategories> findListByPage(Integer page, Integer pageCount);
 
     /**
      * 添加
      *
-     * @param brandInfo 
+     * @param cyCategories 
      * @return int
      */
-    int add(BrandInfo brandInfo);
+    int add(CyCategories cyCategories);
 
     /**
      * 删除
@@ -42,19 +42,16 @@ public interface IBrandInfoService extends IService<BrandInfo> {
     /**
      * 修改
      *
-     * @param brandInfo 
+     * @param cyCategories 
      * @return int
      */
-    int updateData(BrandInfo brandInfo);
+    int updateData(CyCategories cyCategories);
 
     /**
      * id查询数据
      *
      * @param id id
-     * @return BrandInfo
+     * @return CyCategories
      */
-    BrandInfo findById(Long id);
-
-
-    String brandFindNameById(int id);
+    CyCategories findById(Long id);
 }

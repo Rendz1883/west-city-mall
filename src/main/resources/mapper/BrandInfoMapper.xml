@@ -2,4 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.github.ireflux.westcitymall.mapper.BrandInfoMapper">
 
+
+
+<select id="selectNameById" parameterType="Integer" resultType="String">
+    select brand_name from brand_info where id=#{id}
+</select>
+
+
+
 </mapper>
