@@ -9,6 +9,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -46,5 +48,10 @@ public class CyCategoriesServiceImpl extends ServiceImpl<CyCategoriesMapper, CyC
     @Override
     public CyCategories findById(Long id){
         return  baseMapper.selectById(id);
+    }
+
+    @Override
+    public int addAll(List<CyCategories> cyCategoriesList) {
+        return baseMapper.insertAll(cyCategoriesList);
     }
 }

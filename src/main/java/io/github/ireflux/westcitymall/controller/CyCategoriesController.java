@@ -1,5 +1,6 @@
 package io.github.ireflux.westcitymall.controller;
 
+import io.swagger.annotations.Api;
 import io.github.ireflux.westcitymall.base.ApiResult;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,6 +16,8 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+
+import java.util.List;
 
 /**
  * <p>
@@ -64,5 +67,13 @@ public class CyCategoriesController {
     public ApiResult findById(@PathVariable Long id){
         return ApiResult.success(cyCategoriesService.findById(id));
     }
+
+
+    @PostMapping("/addAll")
+    public int addAll(@RequestBody List<CyCategories> cyCategoriesList){
+        return cyCategoriesService.addAll(cyCategoriesList);
+    }
+
+
 
 }

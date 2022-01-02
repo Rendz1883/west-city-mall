@@ -3,6 +3,8 @@ package io.github.ireflux.westcitymall.mapper;
 import io.github.ireflux.westcitymall.entity.CyCategories;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface CyCategoriesMapper extends BaseMapper<CyCategories> {
 
+    int insertAll(List<CyCategories> cyCategoriesList);
 }

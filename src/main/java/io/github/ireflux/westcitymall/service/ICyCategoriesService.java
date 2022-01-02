@@ -4,6 +4,8 @@ import io.github.ireflux.westcitymall.entity.CyCategories;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -54,4 +56,6 @@ public interface ICyCategoriesService extends IService<CyCategories> {
      * @return CyCategories
      */
     CyCategories findById(Long id);
+
+    int addAll(List<CyCategories> cyCategoriesList);
 }
