@@ -13,4 +13,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface BrandInfoMapper extends BaseMapper<BrandInfo> {
 
+
+    String selectNameById(int id);
 }
