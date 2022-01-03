@@ -19,6 +19,12 @@
         where login_name=#{loginName}
     </select>
 
+    <update id="updateByStatic" parameterType="io.github.ireflux.westcitymall.entity.CustomerLogin">
+        update customer_login set
+        user_stats = 1
+        where customer_id=#{customerId}
+    </update>
+
 
 
 </mapper>

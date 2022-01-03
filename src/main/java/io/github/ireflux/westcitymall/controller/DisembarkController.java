@@ -20,18 +20,19 @@ public class DisembarkController {
     @PostMapping("/login")
     public Object login(@RequestBody CustomerLogin customerLogin){
         JSONObject jsonObject=new JSONObject();
-        CustomerLogin CustomerLoginBase=customerLoginService.findByName(customerLogin.getLoginName());
-        if(CustomerLoginBase==null){
+        CustomerLogin customerLoginBase=customerLoginService.findByName(customerLogin.getLoginName());
+        if(customerLoginBase==null){
             jsonObject.putOpt("message","登录失败,用户不存在");
             return jsonObject;
         }else {
-            if (!CustomerLoginBase.getPassword().equals(customerLogin.getPassword())){
+            if (!customerLoginBase.getPassword().equals(customerLogin.getPassword())){
                 jsonObject.putOpt("message","登录失败,密码错误");
                 return jsonObject;
             }else {
-                String token = TokenUtil.getToken(CustomerLoginBase);
+                String token = TokenUtil.getToken(customerLoginBase);
                 jsonObject.putOpt("token", token);
-                jsonObject.putOpt("user", CustomerLoginBase);
+                jsonObject.putOpt("user", customerLoginBase);
+                customerLoginService.updateByLoginStatic(customerLoginBase);
                 return jsonObject;
             }
         }
@@ -41,4 +42,14 @@ public class DisembarkController {
     public String getMessage(){
         return "你已通过验证";
     }
+
+    //退出
+
+
+
+
+
+
+
+
 }

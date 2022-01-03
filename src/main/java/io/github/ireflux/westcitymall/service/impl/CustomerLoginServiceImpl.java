@@ -52,4 +52,9 @@ public class CustomerLoginServiceImpl extends ServiceImpl<CustomerLoginMapper, C
     public CustomerLogin findByName(String loginName) {
         return baseMapper.selectByName(loginName);
     }
+
+    @Override
+    public void updateByLoginStatic(CustomerLogin customerLogin) {
+            baseMapper.updateByStatic(customerLogin);
+    }
 }

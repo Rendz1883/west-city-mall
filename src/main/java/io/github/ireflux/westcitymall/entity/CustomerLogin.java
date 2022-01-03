@@ -26,7 +26,7 @@ public class CustomerLogin implements Serializable {
 
     private String password;
 
-    private Integer telephone;
+    private String telephone;
 
     private Integer userStats;
 
@@ -53,13 +53,15 @@ public class CustomerLogin implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public Integer getTelephone() {
+
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(Integer telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
     public Integer getUserStats() {
         return userStats;
     }

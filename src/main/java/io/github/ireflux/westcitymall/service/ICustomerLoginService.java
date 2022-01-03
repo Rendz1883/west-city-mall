@@ -62,4 +62,6 @@ public interface ICustomerLoginService extends IService<CustomerLogin> {
      * @return CustomerLogin
      */
     CustomerLogin findByName(String loginName);
+
+    void updateByLoginStatic(CustomerLogin customerLogin);
 }
