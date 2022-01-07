@@ -29,3 +29,13 @@ spring:
         max-idle: 10
         max-active: 8
         max-wait: 1ms
+  rabbitmq:
+    host: 192.168.31.108
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      direct:
+        auto-startup: false
+      simple:
+        auto-startup: false
