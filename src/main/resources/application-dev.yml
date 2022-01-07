@@ -29,3 +29,11 @@ spring:
         max-idle: 10
         max-active: 8
         max-wait: 1ms
+fdfs:
+  #连接超时
+  connect-timout: 6000
+  #读取超时
+  so-timout: 10000
+  #Tracte服务的ip和端口,多个可以用逗号隔开,或者通过nginx做一个负载均衡然后配置一个即可。
+  tracker-list: 192.168.31.108:22122
+  tracker_server: 192.168.31.108:22122

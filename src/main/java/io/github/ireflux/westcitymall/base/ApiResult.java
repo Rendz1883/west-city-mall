@@ -28,6 +28,9 @@ public class ApiResult {
     public static ApiResult success(String msg, Object data){
         return new ApiResult(ResponseStatus.SUCCESS.getCode(), msg, data);
     }
+    public static ApiResult success(Integer code,String msg, Object data){
+        return new ApiResult(code,msg, data);
+    }
 
     public static ApiResult fail(){
         return new ApiResult(ResponseStatus.FAIL.getCode(), ResponseStatus.SUCCESS.getMsg(), null);
@@ -41,6 +44,9 @@ public class ApiResult {
         return new ApiResult(ResponseStatus.FAIL.getCode(), msg, data);
     }
 
+    public static ApiResult fail(Integer code,String msg, Object data){
+        return new ApiResult(code,msg, data);
+    }
     public Integer getCode() {
         return code;
     }

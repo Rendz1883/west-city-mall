@@ -57,4 +57,9 @@ public class CustomerLoginServiceImpl extends ServiceImpl<CustomerLoginMapper, C
     public void updateByLoginStatic(CustomerLogin customerLogin) {
             baseMapper.updateByStatic(customerLogin);
     }
+
+    @Override
+    public void updateByQuitStatic(CustomerLogin customerLogin) {
+        baseMapper.updateByQuitStatic(customerLogin);
+    }
 }

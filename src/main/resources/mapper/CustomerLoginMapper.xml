@@ -25,6 +25,11 @@
         where customer_id=#{customerId}
     </update>
 
+    <update id="updateByQuitStatic" parameterType="io.github.ireflux.westcitymall.entity.CustomerLogin">
+    update customer_login set
+    user_stats = 0
+    where customer_id=#{customerId}
+</update>
 
 
 </mapper>

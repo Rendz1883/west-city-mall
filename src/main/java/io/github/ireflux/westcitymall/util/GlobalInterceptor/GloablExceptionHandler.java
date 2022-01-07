@@ -14,7 +14,7 @@ public class GloablExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Object handleException(Exception e){
         String message = e.getMessage();
-        if (message==null ||message == ""){
+        if (message==null ||message.equals("")){
             message="服务器报错";
         }
 

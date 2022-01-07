@@ -16,4 +16,6 @@ public interface CustomerLoginMapper extends BaseMapper<CustomerLogin> {
     CustomerLogin selectByName(String loginName);
 
     void updateByStatic(CustomerLogin customerLogin);
+
+    void updateByQuitStatic(CustomerLogin customerLogin);
 }
