@@ -1,15 +1,12 @@
 package io.github.ireflux.westcitymall.util;
 
 
-
-import com.github.tobato.fastdfs.domain.StorePath;
+import com.github.tobato.fastdfs.domain.fdfs.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
+
 import javax.annotation.Resource;
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;

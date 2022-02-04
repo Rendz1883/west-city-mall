@@ -1,6 +1,6 @@
 package io.github.ireflux.westcitymall;
 
-import com.github.tobato.fastdfs.domain.StorePath;
+import com.github.tobato.fastdfs.domain.fdfs.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
 import io.github.ireflux.westcitymall.entity.CustomerLogin;
 import io.github.ireflux.westcitymall.util.HttpClientUtils;
@@ -11,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.Map;
 
 @SpringBootTest
 class WestCityMallApplicationTests {
@@ -22,7 +21,7 @@ class WestCityMallApplicationTests {
 
 	@Test
 	void tokenGet(){
-		String userName= "赵新羊";
+		String userName= "老任不服输";
 		String password = "123456";
 		CustomerLogin customerLogin = new CustomerLogin();
 		customerLogin.setLoginName(userName);
@@ -48,8 +47,8 @@ class WestCityMallApplicationTests {
 		HashMap<String, Object> shortMap = new HashMap<>();
 		shortMap.put("appkey","fd6939cfbfec079ba55848444c58372e");
 		shortMap.put("mobile", "18831999125");
-		shortMap.put("sign", "【信仰保险】");
-		shortMap.put("content","感谢使用信仰保险祝你生活一直吊毛。每天有女性给您送苹果吃。\" + \"验证码：信仰吊毛】");
+		shortMap.put("sign", "【老任保险】");
+		shortMap.put("content","感谢使用老任保险祝你生活一直吊毛。每天有女性给您送苹果吃。\" + \"验证码：老任吊毛】");
 
 
 		String stringMap = HttpClientUtils.doPost("https://way.jd.com/chonry/smsapi", null,shortMap);

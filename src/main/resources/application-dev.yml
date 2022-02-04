@@ -47,3 +47,16 @@ fdfs:
   #Tracte服务的ip和端口,多个可以用逗号隔开,或者通过nginx做一个负载均衡然后配置一个即可。
   tracker-list: 192.168.31.108:22122
   tracker_server: 192.168.31.108:22122
+
+xxl:
+  job:
+    admin:
+      addresses: http://192.168.31.108:8080/xxl-job-admin
+    accessToken:
+    executor:
+      appname: laoren
+      address:
+      ip:
+      port: 9999
+      logpath: ../log/xxl-job/jobhandler
+      logretentiondays: 30
