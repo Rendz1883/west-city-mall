@@ -4,6 +4,7 @@ import io.github.ireflux.westcitymall.entity.BrandInfo;
 import io.github.ireflux.westcitymall.mapper.BrandInfoMapper;
 import io.github.ireflux.westcitymall.service.IBrandInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -18,6 +19,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
  * @since 2022-01-01
  */
 @Service
+@Slf4j
 public class BrandInfoServiceImpl extends ServiceImpl<BrandInfoMapper, BrandInfo> implements IBrandInfoService {
 
     @Override

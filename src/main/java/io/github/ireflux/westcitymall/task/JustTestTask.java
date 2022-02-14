@@ -12,7 +12,7 @@ public class JustTestTask {
 
     @XxlJob(value = "printLaoRenBuFuShu")
     public void testJobHandler() throws Exception {
-        log.info("当前时间为: {}, 老任仍然未服输", LocalDateTime.now());
+        log.info("当前时间为: {}, 找信仰去找掉毛", LocalDateTime.now());
     }
 
 }

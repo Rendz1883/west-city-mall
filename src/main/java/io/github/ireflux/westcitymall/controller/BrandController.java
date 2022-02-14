@@ -3,6 +3,7 @@ package io.github.ireflux.westcitymall.controller;
 
 import io.github.ireflux.westcitymall.base.ApiResult;
 import io.github.ireflux.westcitymall.service.IBrandInfoService;
+import io.github.ireflux.westcitymall.tokenAnnotation.UserLoginToken;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
@@ -28,9 +29,13 @@ public class BrandController {
     @Operation(summary = "品牌名查询")
     @GetMapping("/findNameByid/{id}")
     @ResponseBody
-    public ApiResult brandNameById(@PathVariable int id){
+    public ApiResult brandNameById(@PathVariable Integer id){
 
         return ApiResult.success(brandInfoService.brandFindNameById(id));
+
+
+
+
 
     }
 

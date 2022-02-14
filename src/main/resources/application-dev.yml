@@ -36,9 +36,9 @@ spring:
     password: 123456
     listener:
       direct:
-        auto-startup: false
+        auto-startup: true
       simple:
-        auto-startup: false
+        auto-startup: true
 fdfs:
   #连接超时
   connect-timout: 6000
